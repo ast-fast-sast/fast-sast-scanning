@@ -485,7 +485,6 @@ public class SnykCIIntegrationManagerTest {
 				"}]";
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		JsonNode node1 = mapper.readTree(s);
 		ArrayNode a =  (ArrayNode) node1;
 		when(astSnyk.getOrgs(anyString())).thenReturn(a);
