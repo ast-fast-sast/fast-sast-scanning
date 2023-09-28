@@ -36,6 +36,13 @@ import com.salesforce.ast.s3.S3Store;
 import com.salesforce.ast.util.PasswordManager;
 import com.salesforce.sds.core.script.ScriptExecutor;
 
+
+
+
+
+
+
+
 public class SnykCIIntegrationManagerTest {
 	@Mock
 	Logger logger;
