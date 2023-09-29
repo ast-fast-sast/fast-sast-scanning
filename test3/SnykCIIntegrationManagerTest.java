@@ -548,7 +548,7 @@ public class SnykCIIntegrationManagerTest {
 				"}]";
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		JsonNode node1 = mapper.readTree(s);
 		ArrayNode a =  (ArrayNode) node1;
 		when(astSnyk.getOrgs(anyString())).thenReturn(a);
@@ -612,7 +612,6 @@ public class SnykCIIntegrationManagerTest {
 		String sampleLine2 = "Another sample test line";
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		//when(astSnyk.getOrgs(anyString())).thenReturn(a);
 		SnykOrgMappingRecord snykOrgMappingRecord = new SnykOrgMappingRecord();
 		snykOrgMappingRecord.setSnykOrgId("testSnykOrg");
@@ -637,7 +636,7 @@ public class SnykCIIntegrationManagerTest {
 		snykCiIntegrationManager.importRecentlyAddedNewRepos("ivp-ast-psyk", 15);
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 	}
 
 }
