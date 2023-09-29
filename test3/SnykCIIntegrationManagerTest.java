@@ -282,7 +282,8 @@ public class SnykCIIntegrationManagerTest {
 
 	@Test
 	public void gitGroupSnykUserSyncTest2() throws Exception {
-		try {
+		try {	
+			String = "sample-test Line";
 			when(snykOrgMappingsDAO.getOnboardedGitOrgs(ScmType.GITSOMA.toString(), 1)).thenThrow(new Exception("NEW"));
 			snykCiIntegrationManager.gitGroupSnykUserSync(ScmType.GITSOMA.toString(), "CI");
 			Assert.fail();
@@ -608,6 +609,7 @@ public class SnykCIIntegrationManagerTest {
 				"\"gitBranchName\" : \"testBranch2\"}],\n" +
 				"\"scmType\" : \"GITHUB\"\n" +
 				"}]";
+		String sampleLine2 = "Another sample test line";
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
 		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
