@@ -548,7 +548,7 @@ public class SnykCIIntegrationManagerTest {
 				"}]";
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
 		JsonNode node1 = mapper.readTree(s);
 		ArrayNode a =  (ArrayNode) node1;
 		when(astSnyk.getOrgs(anyString())).thenReturn(a);
@@ -637,7 +637,7 @@ public class SnykCIIntegrationManagerTest {
 		snykCiIntegrationManager.importRecentlyAddedNewRepos("ivp-ast-psyk", 15);
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
 	}
 
 }
