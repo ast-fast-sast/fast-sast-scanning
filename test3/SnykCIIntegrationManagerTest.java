@@ -633,6 +633,9 @@ public class SnykCIIntegrationManagerTest {
 		Mockito.when(astSnyk.getOrgs(anyString())).thenReturn(orgs);
 		Mockito.when(astSnyk.getSnykOrgIntData(anyString())).thenReturn("76r6tuygygytfytgt98yb98u");
 		snykCiIntegrationManager.importRecentlyAddedNewRepos("ivp-ast-psyk", 15);
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 	}
 
 }
