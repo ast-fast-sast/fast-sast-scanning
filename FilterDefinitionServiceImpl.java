@@ -120,4 +120,4 @@ public class FilterDefinitionServiceImpl extends CommonRestServiceImpl implement
 		}
 		return result.getBody();
 	}
-	
+}	
