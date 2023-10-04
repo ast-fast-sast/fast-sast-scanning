@@ -75,7 +75,6 @@ public class FilterDefinitionServiceImpl extends CommonRestServiceImpl implement
 				try {
 					String xml = ssfd.getFilterDefinitionXml();
 					DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-					dbFactory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
 					DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 					Document xmlDoc = dBuilder.parse(new ByteArrayInputStream(xml.getBytes()));
 					NodeList filterDefinitionElements = xmlDoc.getElementsByTagName("FilterDefinition");
