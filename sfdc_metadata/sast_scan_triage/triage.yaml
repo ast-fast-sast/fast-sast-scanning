@@ -1,0 +1,4 @@
+false_positive:
+  - id: test4/FilterDefinitionServiceImpl.java:e388576d3a09b392d0d0029cdc50e7f32542caf3b302380e5d40fbdc6fddc640:AST-6
+    justification: Testing the triage functionality
+not_exploitable: []
