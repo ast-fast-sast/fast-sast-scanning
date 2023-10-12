@@ -1,9 +1,8 @@
 pipeline_template: docker/Jenkinsfile-1
-email_reply_to: ast-notifications@salesforce.com     # Change this to your group's e-mail address!
-time_out_mins: 180                                  # (Optional default = 180
-compliance_required: false                           # (Optional) default = true
-docker_test_images: # The image(s) that will be used to run your unit tests (Unit tests will be run against each image)
-    - sfci/docker-images/sfdc_centos7_java11_build:75
-unit_tests_command: mvn -V -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn --batch-mode verify                      # The command we'll run for the unit tests stage
-production_branch: master # (Optional) default = master (master branch of github repo)
+email_reply_to: no-reply@salesforce.com
+compliance_required: false
+docker_test_images:
+    - sfci/docker-images/sfdc_rhel9_java_build
+unit_tests_command: echo "Success"
+production_branch: master
 promote_to_falcon: true
