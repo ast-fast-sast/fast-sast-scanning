@@ -4,5 +4,5 @@ compliance_required: false
 docker_test_images:
     - sfci/docker-images/sfdc_rhel9_java_build
 unit_tests_command: echo "Success"
-production_branch: master
+production_branch: main
 promote_to_falcon: true
