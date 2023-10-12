@@ -1,6 +1,4 @@
 false_positive:
 - id: filterDefinitionServiceImpl.java:d118cc2f13d15131cd7d7a4d5a1cf4f630ebc54b1e445246e35e40bc82f6fac5
   justification: This is triage to test the functionality of backend
-- id: filterDefinitionServiceImpl.java:5b2e7a301465393a13f4ae78a3fe8c18eb9c55b83608b1f809472db0d2b2583b
-  justification: This is triage to test the functionality of backend
 not_exploitable: []
