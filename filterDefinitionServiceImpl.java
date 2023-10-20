@@ -104,10 +104,10 @@ public class FilterDefinitionServiceImpl extends CommonRestServiceImpl implement
 						}
 						
 					}
-					TransformerFactory tf = TransformerFactory.newInstance();
-				    Transformer trans = tf.newTransformer();
+             			    TransformerFactory tf = TransformerFactory.newInstance();
 				    tf.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "");
-				    tf.setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, "");
+				    tf.setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, "");					
+				    Transformer trans = tf.newTransformer();
 				    trans.setOutputProperty("omit-xml-declaration", "yes");
 				    StringWriter sw = new StringWriter();
 				    trans.transform(new DOMSource(xmlDoc), new StreamResult(sw));
