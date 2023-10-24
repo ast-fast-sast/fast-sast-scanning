@@ -108,7 +108,6 @@ public class FilterDefinitionServiceImpl extends CommonRestServiceImpl implement
 				    tf.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "");
 				    tf.setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, "");					
 				    Transformer trans = tf.newTransformer();
-				    trans.setOutputProperty("omit-xml-declaration", "yes");
 				    StringWriter sw = new StringWriter();
 				    trans.transform(new DOMSource(xmlDoc), new StreamResult(sw));
 					ssfd.setFilterDefinitionXml(sw.toString());
