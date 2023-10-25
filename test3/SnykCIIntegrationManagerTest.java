@@ -612,7 +612,9 @@ public class SnykCIIntegrationManagerTest {
 		String sampleLine2 = "Another sample test line";
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-    mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+                mapper
+			.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, 
+				 false);
 		//when(astSnyk.getOrgs(anyString())).thenReturn(a);
 		SnykOrgMappingRecord snykOrgMappingRecord = new SnykOrgMappingRecord();
 		snykOrgMappingRecord.setSnykOrgId("testSnykOrg");
