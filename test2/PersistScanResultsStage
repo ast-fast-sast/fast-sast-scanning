@@ -1,0 +1,6 @@
+public class PersistScanResultsStage {
+
+    public void process() {
+        
+    }
+}
