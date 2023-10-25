@@ -1,4 +1,4 @@
-package com.salesforce.ast.oss.snykci;
+package com.salesforce.ast.oss.snykctest;
 
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.doNothing;
@@ -649,3 +649,4 @@ public class SnykCIIntegrationManagerTest {
 	}
 
 }
+//sample line to test patch context
