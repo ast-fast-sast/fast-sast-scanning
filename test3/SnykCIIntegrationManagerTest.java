@@ -554,6 +554,9 @@ public class SnykCIIntegrationManagerTest {
 		when(astSnyk.getOrgs(anyString())).thenReturn(a);
 		when(gitSomaManager.getFileContentAsString(anyString(),anyString(),anyString())).thenThrow(new RuntimeException());
 		when(gitSomaManager.writeFile(anyString(),anyString(),anyString(),anyString(),anyString())).thenThrow(new RuntimeException());
+		ObjectMapper mapper2 = new ObjectMapper();
+		mapper2.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+		mapper2.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		boolean b = snykCiIntegrationManager.onBoardUser();
 	}
 
