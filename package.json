@@ -20,6 +20,6 @@
     "test": "echo \"no test necessary\" && exit 0"
   },
   "devDependencies": {
-    "@salesforce-mc/devscripts": "^10.0.0"
+    "@salesforce-mc/devscripts": "^11.4.0"
   }
 }

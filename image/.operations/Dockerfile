@@ -1,3 +1,3 @@
-ARG FLUENTBITVERSION=1.9.2-debug
+ARG FLUENTBITVERSION=2.1.7
 
 FROM sfmc-docker.artifactory.qapc-sfmc.com/fluent/fluent-bit:${FLUENTBITVERSION}
