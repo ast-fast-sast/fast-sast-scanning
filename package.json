@@ -1,0 +1,25 @@
+{
+  "name": "@salesforce-mc/docker-fluent-bit",
+  "namespace": "build-artifacts",
+  "version": "3.3.0-debug",
+  "description": "Fluent Bit is an open source and multi-platform Log Forwarder. See more about how this relates to Fluentd here: http://fluentbit.io",
+  "license": "BSD-3-Clause",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sfdc-mc-mj/DOCKIMG.docker-fluent-bit.git"
+  },
+  "author": "Salesforce",
+  "scripts": {
+    "build": "echo \"no build necessary\" && exit 0",
+    "contributors": "mc-update-contributors",
+    "lint": "echo \"no linting necessary\" && exit 0",
+    "make-notes": "mc-make-notes",
+    "docker-publish": "mc-docker-publish --skip-helm --docker-dir ./.operations --image-dir ./image --name build-artifacts/sfmc-fluent-bit",
+    "tag": "mc-tag",
+    "test": "echo \"no test necessary\" && exit 0"
+  },
+  "devDependencies": {
+    "@salesforce-mc/devscripts": "^10.0.0"
+  }
+}
