@@ -602,7 +602,7 @@ public class SnykCIIntegrationManagerTest {
 		String sample = "testString. New Detection";
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, 
-				 true);
+				 false);
 	}
 
 	@Test
