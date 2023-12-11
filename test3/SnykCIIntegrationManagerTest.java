@@ -1,4 +1,4 @@
-package com.salesforce.ast.oss.snykci;
+package com.salesforce.ast.oss.snykctest;
 
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.doNothing;
@@ -512,7 +512,7 @@ public class SnykCIIntegrationManagerTest {
 				"}]";
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
 		JsonNode node1 = mapper.readTree(s);
 		ArrayNode a =  (ArrayNode) node1;
 		when(astSnyk.getOrgs(anyString())).thenReturn(a);
@@ -548,12 +548,15 @@ public class SnykCIIntegrationManagerTest {
 				"}]";
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
 		JsonNode node1 = mapper.readTree(s);
 		ArrayNode a =  (ArrayNode) node1;
 		when(astSnyk.getOrgs(anyString())).thenReturn(a);
 		when(gitSomaManager.getFileContentAsString(anyString(),anyString(),anyString())).thenThrow(new RuntimeException());
 		when(gitSomaManager.writeFile(anyString(),anyString(),anyString(),anyString(),anyString())).thenThrow(new RuntimeException());
+		ObjectMapper mapper2 = new ObjectMapper();
+		mapper2.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+		mapper2.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		boolean b = snykCiIntegrationManager.onBoardUser();
 	}
 
@@ -596,6 +599,10 @@ public class SnykCIIntegrationManagerTest {
 		snykCiIntegrationManager.cleanUp("src/test/resourcestestOrgId2");
 		File file = new File("src/test/resourcestestOrgId2");
 		file.delete();
+		String sample = "testString. New Detection";
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, 
+				 true);
 	}
 
 	@Test
@@ -612,6 +619,9 @@ public class SnykCIIntegrationManagerTest {
 		String sampleLine2 = "Another sample test line";
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+                mapper
+			.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, 
+				 false);
 		//when(astSnyk.getOrgs(anyString())).thenReturn(a);
 		SnykOrgMappingRecord snykOrgMappingRecord = new SnykOrgMappingRecord();
 		snykOrgMappingRecord.setSnykOrgId("testSnykOrg");
@@ -625,6 +635,7 @@ public class SnykCIIntegrationManagerTest {
 
 	@Test
 	public void importRecentlyAddedNewReposTest() throws Exception {
+		String sample = "testString";
 		List<String> gitOrgNames = Arrays.asList("ajanta","pace","victor247");
 		Mockito.when(astSnykCIGit.getAllGitOrgs(anyString())).thenReturn(gitOrgNames);
 		ObjectMapper mapper = Util.getObjectMapper();
@@ -636,7 +647,9 @@ public class SnykCIIntegrationManagerTest {
 		snykCiIntegrationManager.importRecentlyAddedNewRepos("ivp-ast-psyk", 15);
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+		String sample = "testString. Old detection just below this line";
 		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 	}
 
 }
+//sample line to test patch context
