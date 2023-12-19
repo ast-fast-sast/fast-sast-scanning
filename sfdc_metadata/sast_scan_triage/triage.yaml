@@ -1,2 +1,4 @@
-false_positive: []    
+false_positive: 
+  - id: filterDefinitionServiceImpl.java:785cdfe06af3a2c179a7c7ef9daa071311f293ee0dfced9bfa0e9571db377dda
+    justification: Triaging 1 det. here as FP
 not_exploitable: []
