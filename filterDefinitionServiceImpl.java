@@ -26,6 +26,10 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import com.exacttarget.fuelsdk.ETSdkException;
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.projectecho.et.ETClientObject;
 import com.projectecho.et.ETDataExtensionColumnObject;
