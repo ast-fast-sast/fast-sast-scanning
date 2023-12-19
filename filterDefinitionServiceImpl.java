@@ -75,6 +75,7 @@ public class FilterDefinitionServiceImpl extends CommonRestServiceImpl implement
 				try {
 					String xml = ssfd.getFilterDefinitionXml();
 					DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+					dbFactory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
 					DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 					Document xmlDoc = dBuilder.parse(new ByteArrayInputStream(xml.getBytes()));
 					NodeList filterDefinitionElements = xmlDoc.getElementsByTagName("FilterDefinition");
@@ -86,6 +87,10 @@ public class FilterDefinitionServiceImpl extends CommonRestServiceImpl implement
 						}
 					}
 					List<ETDataExtensionColumnObject> columns = this.deService.retrieveColumns(etClientObject, deMID, deObj.getKey());
+
+					ObjectMapper mapper = new ObjectMapper();
+					mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+					mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 					
 					NodeList conditionElements = xmlDoc.getElementsByTagName("Condition");
 					for(int idx = 0; idx < conditionElements.getLength(); idx++) {
