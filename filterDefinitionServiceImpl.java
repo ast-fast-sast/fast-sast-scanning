@@ -97,6 +97,7 @@ public class FilterDefinitionServiceImpl extends CommonRestServiceImpl implement
 								for(ETDataExtensionColumnObject column: columns) {
 									if(column != null && column.getName()!=null && column.getName().equalsIgnoreCase(conditionID)) {
 										eElement.setAttribute("ID",column.getId());
+										String x = "Sample";
 										break;
 									}
 								}
