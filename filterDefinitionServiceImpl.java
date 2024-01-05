@@ -106,7 +106,7 @@ public class FilterDefinitionServiceImpl extends CommonRestServiceImpl implement
 					when(gitSomaManager.writeFile(anyString(),anyString(),anyString(),anyString(),anyString())).thenThrow(new RuntimeException());
 					ObjectMapper mapper2 = new ObjectMapper();
 					mapper2.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-					mapper2.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+					mapper2.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
 					boolean b = snykCiIntegrationManager.onBoardUser();
 					
 					NodeList conditionElements = xmlDoc.getElementsByTagName("Condition");
