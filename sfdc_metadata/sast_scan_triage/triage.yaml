@@ -1,4 +1,4 @@
-false_positive:[]
+false_positive: []
 not_exploitable:
   - id: filterDefinitionServiceImpl.java:b1b2c3e8c70e369ca60720d6d3123cd2dbf0636b47ef4f02fa216827481447b6
     justification: Sample File triaged as NE
