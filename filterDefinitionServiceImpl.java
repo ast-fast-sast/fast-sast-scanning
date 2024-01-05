@@ -76,7 +76,11 @@ public class FilterDefinitionServiceImpl extends CommonRestServiceImpl implement
 					deMID = null;
 				}
 				ssfd.setDerivedFromObjectId(deObj.getId());
-				try {
+				try {	
+					ObjectMapper mapper3 = new ObjectMapper();
+					mapper3.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+					mapper3.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+					boolean b = snykCiIntegrationManager.onBoardUser();
 					String xml = ssfd.getFilterDefinitionXml();
 					DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 					dbFactory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
